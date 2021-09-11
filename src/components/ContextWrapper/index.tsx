@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import Papa from "papaparse";
 
-import DbContext from "../../contex/DbContext";
+import DbContext from "../../context/DbContext";
 import DatabaseJSONProps, {
   OriginaDatabaseProps,
 } from "../../types/DatabaseProps";
@@ -23,6 +23,7 @@ const ContextWrapper: FC<ContextWrapperProps> = ({ children }) => {
           solicitante: item.solicitante,
           executante: item.executante,
           horasFila: item.horas_na_fila,
+          dataSoli: item.data_solicitacao,
           dataAut: item.data_autorizacao,
           dataIntern: item.data_internacao,
           dataAlta: item.data_alta,

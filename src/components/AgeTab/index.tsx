@@ -91,11 +91,11 @@ const AgeTab: FC = () => {
   }
 
   return (
-    <Box px="14vw">
+    <Box>
       <CityFilter
-        municipioFiltro={municipioFiltro}
+        cityFilter={municipioFiltro}
         handleOnSubmit={handleSubmit}
-        onChange={onChangeInput}
+        handleOnChange={onChangeInput}
       />
 
       <Paper>

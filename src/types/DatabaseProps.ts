@@ -2,6 +2,7 @@ type DatabaseJSONProps = {
   solicitante: string,
   executante: string,
   horasFila: string,
+  dataSoli: string,
   dataAut: string,
   dataIntern: string,
   dataAlta: string,

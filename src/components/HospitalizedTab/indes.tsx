@@ -59,10 +59,10 @@ const HospitalizedTab: FC = () => {
   }
 
   return (
-    <Box px="14vw">
+    <Box>
       <CityFilter
-        municipioFiltro={municipioFiltro}
-        onChange={onChangeInput}
+        cityFilter={municipioFiltro}
+        handleOnChange={onChangeInput}
         handleOnSubmit={handleOnSubmit}
       />
 
