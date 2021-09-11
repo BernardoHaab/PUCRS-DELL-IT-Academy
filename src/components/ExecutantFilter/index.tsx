@@ -32,6 +32,10 @@ const ExecutantFilter: FC<ExecutantFilterProps> = ({
       (item) => item.executante.toLowerCase() == executantFilter.toLowerCase()
     );
 
+    if (filteredDb.length === 0) {
+      alert("Executante não encontrado. Tente outro!");
+    }
+
     handleOnSubmit(filteredDb);
   }
 
