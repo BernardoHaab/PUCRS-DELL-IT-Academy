@@ -11,19 +11,17 @@ import {
   ValueAxis,
 } from "@devexpress/dx-react-chart-material-ui";
 import { Animation, EventTracker } from "@devexpress/dx-react-chart";
-import BarTableProps from "../../types/BarTableProps";
-
-interface HospatilzationType {
-  year: string;
-  amount: number;
-}
+import BarGraphProps from "../../types/BarGraphProps";
 
 const HospitalizedTab: FC = () => {
   const [municipioFiltro, setMunicipioFiltro] = useState("");
-  const [hospitalizations, setHospitalizations] = useState<BarTableProps[]>([]);
+  const [hospitalizations, setHospitalizations] = useState<BarGraphProps[]>([]);
   const [graphTitle, setGraphTitle] = useState("Pesquise uma cidade");
 
   function handleOnSubmit(filteredDb: DatabaseJSONProps[]) {
+    setGraphTitle(
+      `Número de internados por ano da cidade de ${municipioFiltro}`
+    );
     const yearsHospitalizations = getYearsHospitalizations(filteredDb);
     const years = Object.keys(yearsHospitalizations);
     const ammounts: Array<number> = Object.values(yearsHospitalizations);

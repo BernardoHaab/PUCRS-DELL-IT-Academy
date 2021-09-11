@@ -8,6 +8,8 @@ import AgeTab from "../src/components/AgeTab";
 import TabPanel from "../src/components/TabPanel";
 import HospitalizedTab from "../src/components/HospitalizedTab/indes";
 import PatientsTab from "../src/components/PatientsTab";
+import HospitalizedTimeTab from "../src/components/HospitalizedTimeTab";
+import LongerTimeTab from "../src/components/LongerTimeTab";
 
 function a11yProps(index: any) {
   return {
@@ -39,23 +41,32 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.root}>
-      <Box my="8vh" mx="12vw" className={styles.boxRoot}>
+      <Box py="8vh" mx="12vw" className={styles.boxRoot}>
         <Typography variant="h4">
           <Box textAlign="center" mb={4}>
-            Encontre a informação que busca sobre Internações em POA
+            Encontre a informação que busca sobre Internações Hospitalares no
+            Rio Grande do Sul
           </Box>
         </Typography>
         <AppBar position="static">
           <Tabs
-            color="primary.secundary"
             value={value}
+            variant="scrollable"
+            scrollButtons="auto"
             onChange={handleChange}
             aria-label="Abas de busca"
-            centered
           >
-            <Tab label="Média de Idade" {...a11yProps(0)} />
-            <Tab label="Internados por Ano" {...a11yProps(1)} />
-            <Tab label="Pacientes por Hospital" {...a11yProps(2)} />
+            <Tab
+              label="[1] Consultar média de idade dos pacientes"
+              {...a11yProps(0)}
+            />
+            <Tab label="[2] Consultar internações por ano" {...a11yProps(1)} />
+            <Tab label="[3] Consultar hospitais" {...a11yProps(2)} />
+            <Tab label="[4] Calcular tempo de internação" {...a11yProps(3)} />
+            <Tab
+              label="[5] Determinar  tempos  de  espera  na  fila"
+              {...a11yProps(4)}
+            />
           </Tabs>
         </AppBar>
       </Box>
@@ -68,6 +79,12 @@ const Home: NextPage = () => {
         </TabPanel>
         <TabPanel value={value} index={2}>
           <PatientsTab />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <HospitalizedTimeTab />
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          <LongerTimeTab />
         </TabPanel>
       </Box>
     </div>

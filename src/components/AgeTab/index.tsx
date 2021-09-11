@@ -15,16 +15,18 @@ import CityFilter from "../CityFilter";
 
 import DatabaseJSONProps from "../../types/DatabaseProps";
 import SexTypes from "../../types/SexTypes";
-import BarTableProps from "../../types/BarTableProps";
+import BarGraphProps from "../../types/BarGraphProps";
 
 const AgeTab: FC = () => {
   const [municipioFiltro, setMunicipioFiltro] = useState("");
-  const [avgAges, setAvgAges] = useState<BarTableProps[]>([]);
+  const [avgAges, setAvgAges] = useState<BarGraphProps[]>([]);
   const [graphTitle, setGraphTitle] = useState("Pesquise uma cidade");
 
   function handleSubmit(filteredDb: DatabaseJSONProps[]) {
     const avgAgesObj = getAvgAges(filteredDb);
-    setGraphTitle(`Média de idade da cidade ${municipioFiltro}`);
+    setGraphTitle(
+      `Média de idade dos internados da cidade de ${municipioFiltro}`
+    );
 
     setAvgAges([
       {

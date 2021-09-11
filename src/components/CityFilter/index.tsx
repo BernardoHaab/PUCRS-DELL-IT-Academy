@@ -30,6 +30,10 @@ const CityFilter: FC<CityFilterProps> = ({
         item.paciente.munResidencia.toLowerCase() == cityFilter.toLowerCase()
     );
 
+    if (filteredDb.length === 0) {
+      alert("Cidade não encontrada. Tende outra!");
+    }
+
     handleOnSubmit(filteredDb);
   }
 
