@@ -17,12 +17,13 @@ const ExecutantFilter: FC<ExecutantFilterProps> = ({
   handleOnChange,
   executantFilter,
 }) => {
+  // Carrega do contexto da aplicação os dados do .csv salvos no estado da aplicação no formado de JSON
   const { dbJson } = useContext(DbContext);
   const styles = useStyles();
 
   function validatorOnSubmit(e: FormEvent) {
+    // Garante que a pagina não será recarregado no envio do formulário
     e.preventDefault();
-    console.log(dbJson);
 
     if (executantFilter.trim() === "") {
       return;
@@ -36,6 +37,7 @@ const ExecutantFilter: FC<ExecutantFilterProps> = ({
       alert("Executante não encontrado. Tente outro!");
     }
 
+    // Chama a função passada por paramet para carregar os dados filtrados e exbilios na DOM
     handleOnSubmit(filteredDb);
   }
 

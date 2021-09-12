@@ -54,6 +54,7 @@ const Home: NextPage = () => {
             </Box>
           </Typography>
           <AppBar position="static">
+            {/* Lista de abas */}
             <Tabs
               value={value}
               variant="scrollable"
@@ -79,6 +80,7 @@ const Home: NextPage = () => {
           </AppBar>
         </Box>
         <Box px="14vw">
+          {/* Componentes carregados quando a aba é selecionada */}
           <TabPanel value={value} index={0}>
             <AgeTab />
           </TabPanel>

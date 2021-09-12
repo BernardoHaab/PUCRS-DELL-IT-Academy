@@ -22,11 +22,16 @@ const HospitalizedTab: FC = () => {
     setGraphTitle(
       `Número de internados por ano da cidade de ${municipioFiltro}`
     );
+    // Recebe o numero de itnenações por ano em formato de objeto
     const yearsHospitalizations = getYearsHospitalizations(filteredDb);
+
+    // Transforma o obejto em um array com os anos de internações a paritr das chaves do obejto
     const years = Object.keys(yearsHospitalizations);
+    // Transforma o objeto em um array com os numeros de itnernações a partir dos vcalores do objeto
     const ammounts: Array<number> = Object.values(yearsHospitalizations);
 
     const hospitalizationsObj = years.map((year, id) => {
+      // retorna um objeto no formato esperado para a apresentação na DOM
       return {
         selector: year,
         info: ammounts[id],
@@ -43,8 +48,10 @@ const HospitalizedTab: FC = () => {
       const date = new Date(item.dataIntern).getFullYear();
 
       if (!result[date]) {
+        // Caso o objeto não tenho um valor para o ano indicado cria com o valor inicial de 1
         result[date] = 1;
       } else {
+        // Soma 1 ao valor total de casos do ano indicado
         result[date]++;
       }
     });
@@ -73,6 +80,7 @@ const HospitalizedTab: FC = () => {
           <Title text={graphTitle} />
           <Animation />
           <EventTracker />
+          {/* Tooltip que apresenta o valo da barra quando se deixa o maus sobre ela */}
           <Tooltip />
         </Chart>
       </Paper>

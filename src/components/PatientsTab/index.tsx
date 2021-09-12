@@ -95,7 +95,6 @@ const PatientsTab: FC = () => {
   }
 
   function handleOnSubmit(filteredDb: DatabaseJSONProps[]) {
-    console.log(filteredDb);
     const rowsObj = filteredDb.map((item) =>
       createData(
         item.paciente.id,

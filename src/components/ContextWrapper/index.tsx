@@ -38,6 +38,7 @@ const ContextWrapper: FC<ContextWrapperProps> = ({ children }) => {
         //atualiza state
         loadedJson.pop();
 
+        //Atribui os dados do .csv no formato JSON  ao estado dbJson
         setDbJson(loadedJson);
       },
     });

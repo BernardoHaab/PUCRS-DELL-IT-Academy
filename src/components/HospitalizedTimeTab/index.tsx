@@ -6,6 +6,7 @@ import { Column } from "../../types/PagedTableProps";
 import ExecutantFilter from "../ExecutantFilter";
 import PagedTable from "../PagedTable";
 
+// Identificadores aceitos para as colunas
 interface idTypes {
   id: "patientId" | "hospitalizedTime" | "requester" | "executant";
 }
@@ -56,6 +57,7 @@ const HospitalizedTimeTab: FC = () => {
         const dischargedDate = new Date(item.dataAlta);
         const diffTime = dischargedDate.getTime() - requestDate.getTime();
 
+        // Calcula a diferença de tempo entre a solicitação e a alta em dias e horas
         const days = (diffTime / 86400000).toFixed(0);
         const restDays = diffTime % 86400000;
         const hours = (restDays / 3600000).toFixed(0);
@@ -63,15 +65,18 @@ const HospitalizedTimeTab: FC = () => {
         const hospitalizedTime = `Dias: ${days}; Horas: ${hours}`;
 
         return {
+          // Cria o objeto que será utilizado na apresentação dos dados
           rowsObj: createData(
             item.paciente.id,
             hospitalizedTime,
             item.solicitante,
             item.executante
           ),
+          // variável utilizada para orderar as linhas da tabela
           sorting: diffTime,
         };
       })
+      // Ordena as informações de forma crscente pelo tempo internados
       .sort((a, b) => a.sorting - b.sorting);
 
     const rowsObj = sortedObj.flatMap((item) => item.rowsObj);

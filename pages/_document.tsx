@@ -34,6 +34,8 @@ class MyDocument extends Document {
     );
   }
 }
+
+// Configuração padrão indicado pela doumentação do Material UI para uso do server side rendering nos estilos de seus components
 MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   // Resolution order
   //
